@@ -2,7 +2,7 @@
 
 ## Students
 
-Darya Kritskaya, Elena Pazhenkova
+Darya Krytskaya, Elena Pazhenkova
 
 ## Supervisors 
 
