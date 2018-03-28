@@ -22,7 +22,7 @@ Tasks:
 ### Test data
 
 The data was collected from [NCBI](https://www.ncbi.nlm.nih.gov/nucleotide/). 
-The dataset contains 32000 sequences, among them 18000 are productive.
+The dataset contains about 32000 sequences, among them 18000 are productive.
 The dataset will be divided by source of Ig (bone marrow or periphery) and by phenotype (healthy or not).
 
 ### Synthetic dataset
@@ -71,7 +71,7 @@ Python 3.x, Biopython (Cock et al. 2009) and pandas library are required.
 
 ### IMGT-Vquest results
 
-картинку сделаю
+картинку сделаю, правда, пока не знаю как. 
 
 ## Citation
 * Brochet, X., Lefranc, M. P., & Giudicelli, V. (2008). IMGT/V-QUEST: the highly customized and integrated system for IG and TR standardized V-J and V-D-J sequence analysis. Nucleic Acids Research, 36(Web Server issue). https://doi.org/10.1093/nar/gkn316
