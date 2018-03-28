@@ -53,7 +53,7 @@ And this command returns "test1.fasta" file contains 100 sequences without stop-
 python3 genjunc.py 100 test 1 0
 ```
 
-Files V.fasta, D.fasta and J.fasta contain germline alleles for human IgH from [IMGT-GENE] (http://www.imgt.org/genedb/) database and they should be placed in the working directory.
+Files V.fasta, D.fasta and J.fasta contain germline alleles for human IgH from [IMGT-GENE](http://www.imgt.org/genedb/) database and they should be placed in the working directory.
 
 Python 3.x, Biopython (Cock et al. 2009) and pandas library are required. 
 
