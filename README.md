@@ -46,12 +46,24 @@ For example, following command returns "test.fasta" file, contains 50 productive
 ```
 python3 genjunc.py 50 test
 ```
-Also, the folder "Annotations" with .csv file for each sequence is created. The tables contains the informations about borders of each region.
-
 And this command returns "test1.fasta" file contains 100 sequences without stop-codons, but with possible frameshifts:
 ```
 python3 genjunc.py 100 test 1 0
 ```
+Also, the folder "Annotations" with .csv file for each sequence is created. The tables contains the informations about borders of each region (example below).
+
+Region| start | end
+----- | ----- | ---
+V-REGION | 1 |	297
+P-REGION V3' | 298 | 300
+N1-REGION	| 301	| 309
+P-REGION D5' | 310	| 311
+D-REGION	| 312	| 333
+P-REGION D3' |	334 |	336
+N2-REGION |	337 |	346
+P-REGION J5' |	347 |	349
+J-REGION |	349 |	411
+
 
 Files V.fasta, D.fasta and J.fasta contain germline alleles for human IgH from [IMGT-GENE](http://www.imgt.org/genedb/) database and they should be placed in the working directory.
 
