@@ -12,7 +12,7 @@ Evgeniy Bakin, Oksana Stanevich
 Create a statistical model for the formation of the N1 zone of human IgH.
 
 Tasks:
-* to study details of sequence analysis in [IMGT-Vquest](https://www.imgt.org/IMGT_vquest/vquest)
+* to study details of sequence analysis in [IMGT/V-quest](https://www.imgt.org/IMGT_vquest/vquest)
 * to define biological stages of antibody formation
 * to propose mathematical models, describing N1-region formation
 * to estimate parameters of the model for synthetic and real datasets
@@ -69,9 +69,17 @@ Files V.fasta, D.fasta and J.fasta contain germline alleles for human IgH from [
 
 Python 3.x, Biopython (Cock et al. 2009) and pandas library are required. 
 
-### IMGT-Vquest results
+### IMGT/V-quest results
 
-картинку сделаю, правда, пока не знаю как. 
+We submited synthetic sequences to IMGT V-quest and compared result of analysis to our annotation. On Fig. 1 the whole V-D-J region is represented and borders of frameworks (Fr1-4) and complementarity-determining regions (CDR1-3) are marked by IMGT.  
+
+**Figure 1**
+![Bigpicture](https://github.com/PazhenkovaEA/VH-replacement-analysis/blob/master/Figures/Fig1.png)
+
+On Fig. 2 the Junction (from 3'V to 5'J) is shown. The main difference between our and V-quest' annotation is that V-quest includes 3'P-nucleotides in N-region. 
+
+**Figure 2**
+![smallpicture](https://github.com/PazhenkovaEA/VH-replacement-analysis/blob/master/Figures/Fig2.png)
 
 ## Citation
 * Brochet, X., Lefranc, M. P., & Giudicelli, V. (2008). IMGT/V-QUEST: the highly customized and integrated system for IG and TR standardized V-J and V-D-J sequence analysis. Nucleic Acids Research, 36(Web Server issue). https://doi.org/10.1093/nar/gkn316
