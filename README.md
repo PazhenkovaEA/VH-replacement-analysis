@@ -71,18 +71,20 @@ Python 3.x, Biopython (Cock et al. 2009) and pandas library are required.
 
 ### IMGT/V-quest results
 
-We submited synthetic sequences to IMGT V-quest and compared result of analysis to our annotation. On Fig. 1 the whole V-D-J region is represented and borders of frameworks (Fr1-4) and complementarity-determining regions (CDR1-3) are marked by IMGT.  
+We submited synthetic sequences to IMGT V-quest and compared result of analysis to our annotation. On Fig. 1 an example of the whole V-D-J region is represented. Borders of frameworks (Fr1-4) and complementarity-determining regions (CDR1-3) are marked by IMGT.  
 
-**Figure 1**
+  **Figure 1**
 ![Bigpicture](https://github.com/PazhenkovaEA/VH-replacement-analysis/blob/master/Figures/Fig1.png)
 
-On Fig. 2 the Junction (from 3'V to 5'J) is shown. The main difference between our and V-quest' annotation is that V-quest includes 3'P-nucleotides in N-region. 
+On Fig. 2 the Junction (from 3'V to 5'J) of the same sequence as on Fig. 1 is shown. The main difference between our and V-quest' annotation is that V-quest often includes 3'P-nucleotides in N-region. Considering this, the junction between V and D will be reffered to as N1-zone, and the junction between D and J will be referred to as N2-zone. This terminology also accepted in Meng et al., 2014. 
 
-**Figure 2**
+
+   **Figure 2**
 ![smallpicture](https://github.com/PazhenkovaEA/VH-replacement-analysis/blob/master/Figures/Fig2.png)
 
 ## Citation
 * Brochet, X., Lefranc, M. P., & Giudicelli, V. (2008). IMGT/V-QUEST: the highly customized and integrated system for IG and TR standardized V-J and V-D-J sequence analysis. Nucleic Acids Research, 36(Web Server issue). https://doi.org/10.1093/nar/gkn316
 * Brochet, X., Lefranc, M. P., & Giudicelli, V. (2008). IMGT/V-QUEST: the highly customized and integrated system for IG and TR standardized V-J and V-D-J sequence analysis. Nucleic Acids Research, 36(Web Server issue). https://doi.org/10.1093/nar/gkn316
 * Cock, P. J. A., Antao, T., Chang, J. T., Chapman, B. A., Cox, C. J., Dalke, A., … De Hoon, M. J. L. (2009). Biopython: Freely available Python tools for computational molecular biology and bioinformatics. Bioinformatics, 25(11), 1422–1423. https://doi.org/10.1093/bioinformatics/btp163
+* Meng, W., Jayaraman, S., Zhang, B., Schwartz, G. W., Daber, R. D., Hershberg, U., … Luning Prak, E. T. (2014). Trials and tribulations with VH replacement. Frontiers in Immunology, 5(JAN). https://doi.org/10.3389/fimmu.2014.00010
 * Murphy, K., Casey, W. (2017). Janeway's immunobiology. 9th edition. New York: Garland Science, London: Taylor & Francis Group
