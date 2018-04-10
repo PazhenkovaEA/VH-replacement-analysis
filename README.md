@@ -1,5 +1,12 @@
 # Analysis of VH-replacement in human antibodies
 
+## Project description
+
+  The N1-zone is a variable region of human antibodies DNA, formed as a result of VDJ-recombination and providing diversity of antigen binding regions. N1-zone generation is a complicated process including formation of palindroms on 5' and 3' ends and addind up to 20 random nucleotides to 5' and 3' ends with following non-homologous end joining. Thus, length of N1-zone depends of several random events. 
+  However, the N1-zone sometimes contains so-called footprints, appeared as a result of VH-replacement and recent studies showed that the length of CDR3 (including V3', N1, D, N2 and J5') is correlated with number of footprints (Meng et al., 2014). In this project we want to figure out whether VH-replacement is a random event by fitting of statistical model of N1-zone formation and estimating its parameters using Maximum Likelihood method.
+
+
+
 ## Students
 
 Darya Krytskaya, Elena Pazhenkova
