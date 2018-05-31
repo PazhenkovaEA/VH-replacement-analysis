@@ -43,7 +43,19 @@ The dataset contained 32301 sequences, than it was splitted up on different phen
 ## Results
 
 ### The model
+Under general independency assumption it follows that:
+* palindrome length is a geometrically distributed random variable:
+<a href="https://www.codecogs.com/eqnedit.php?latex=Lp&space;\sim&space;Geom(pp)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Lp&space;\sim&space;Geom(pp)" title="Lp \sim Geom(pp)" /></a>
 
+* N-nucleotides length is a geometrically distributed random variable:
+<a href="https://www.codecogs.com/eqnedit.php?latex=Ln&space;\sim&space;Geom(pn)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?Ln&space;\sim&space;Geom(pn)" title="Ln \sim Geom(pn)" /></a>
+
+* Resulting N1-zone length is a binomial random variable:
+<a href="https://www.codecogs.com/eqnedit.php?latex=L&space;\sim&space;Bin(Lp1&plus;Lp2&plus;Ln,&space;pe)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?L&space;\sim&space;Bin(Lp1&plus;Lp2&plus;Ln,&space;pe)" title="L \sim Bin(Lp1+Lp2+Ln, pe)" /></a>
+The model has three parameters: 
+<a href="https://www.codecogs.com/eqnedit.php?latex=pp,&space;pn,&space;pe" target="_blank"><img src="https://latex.codecogs.com/gif.latex?pp,&space;pn,&space;pe" title="pp, pn, pe" /></a>
+
+The final formula of model is ![model](https://github.com/PazhenkovaEA/VH-replacement-analysis/blob/master/Figures/distribution.png)
 
 ### Synthetic dataset
   
@@ -74,7 +86,7 @@ And this command returns "test1.fasta" file contains 100 sequences without stop-
 python3 genjunc.py 100 test 1 0
 ```
 The file "Annotations_filename.csv" will be created. The table contains the informations about borders of each region.
-Also the table "length_filename.csv" with N1-zone lenght for each sequence will be created.
+Also the table "length_filename.csv" with N1-zone length for each sequence will be created.
 
 Files V.fasta, D.fasta and J.fasta contain germline alleles for human IgH from [IMGT-GENE](http://www.imgt.org/genedb/) database and they should be placed in the working directory.
 
@@ -93,13 +105,24 @@ On Fig. 3 the Junction (from 3'V to 5'J) of the same sequence as on Fig. 2 is sh
    **Figure 3**
 ![smallpicture](https://github.com/PazhenkovaEA/VH-replacement-analysis/blob/master/Figures/Fig2.png)
 
+The length of N1 zones were equal in 99% of 150000 generated sequences according to IMGT and initial annotation (Fig. 4).
+  **Figure 4**
+![heatmap](https://github.com/PazhenkovaEA/VH-replacement-analysis/blob/master/Figures/heatmap.png)
+
+Initial parameters chosen for synthetic dataset generation and parameters of model, estimated with Maximum likelihood method before and after annotation in V-quest differed not more than 10%. Thus, both model and V-quest are suitable for using in real datasets. 
+
+|   | pp | pn | pe |
+|--|--|--|--|
+| Initial | 0.5 | 0.1 | 0.9 |
+| Before V-quest | 0.5 | 0.1 | 0.9 |
+| After V-quest | 0.43 | 0.09 | 0.8 |
+
 
 Discussion
 
   However, the N1-zone sometimes contains so-called footprints, appeared as a result of VH-replacement and recent studies showed that the length of CDR3 (including V3', N1, D, N2 and J5') is correlated with number of footprints (Meng et al., 2014)
 
 ## Citation
-* Brochet, X., Lefranc, M. P., & Giudicelli, V. (2008). IMGT/V-QUEST: the highly customized and integrated system for IG and TR standardized V-J and V-D-J sequence analysis. Nucleic Acids Research, 36(Web Server issue). https://doi.org/10.1093/nar/gkn316
 * Brochet, X., Lefranc, M. P., & Giudicelli, V. (2008). IMGT/V-QUEST: the highly customized and integrated system for IG and TR standardized V-J and V-D-J sequence analysis. Nucleic Acids Research, 36(Web Server issue). https://doi.org/10.1093/nar/gkn316
 * Cock, P. J. A., Antao, T., Chang, J. T., Chapman, B. A., Cox, C. J., Dalke, A., … De Hoon, M. J. L. (2009). Biopython: Freely available Python tools for computational molecular biology and bioinformatics. Bioinformatics, 25(11), 1422–1423. https://doi.org/10.1093/bioinformatics/btp163
 * Meng, W., Jayaraman, S., Zhang, B., Schwartz, G. W., Daber, R. D., Hershberg, U., … Luning Prak, E. T. (2014). Trials and tribulations with VH replacement. Frontiers in Immunology, 5(JAN). https://doi.org/10.3389/fimmu.2014.00010
