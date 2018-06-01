@@ -80,11 +80,11 @@ for n in range (int(sys.argv[1])): #generation of antibodies
     if fr == 1:
         if len(V_dom) % 3 == 1: #frameshift treatment
             V_dom = V_dom.replace(V_dom[len(V1) + len(p1) + len(n1) + len(p2) + len(D1) + len(p3) + 1:len(V1) + len(p1) + len(n1) + len(p2) + len(D1) + len(p3) + len_n2],
-                                  V_dom[len(V1) + len(p1) + len(n1) + len(p2) + len(D1) + len(p3) + 1:len(V1) + len(p1) + len(n1) + + len(p2) + len(D1) + len(p3) + len_n2] + random.choice(nucleotides) + random.choice(nucleotides))
+                                  V_dom[len(V1) + len(p1) + len(n1) + len(p2) + len(D1) + len(p3) + 1:len(V1) + len(p1) + len(n1) +  len(p2) + len(D1) + len(p3) + len_n2] + random.choice(nucleotides) + random.choice(nucleotides))
             len_n2 +=2
         elif len(V_dom) % 3 == 2:
             V_dom = V_dom.replace(V_dom[len(V1) + len(p1) + len(n1) + len(p2) + len(D1) + len(p3) + 1:len(V1) + len(p1) + len(n1) + len(p2) + len(D1) + len(p3) + len_n2],
-                                  V_dom[len(V1) + len(p1) + len(n1) + len(p2) + len(D1) + len(p3) + 1:len(V1) + len(p1) + len(n1) + + len(p2) + len(D1) + len(p3) + len_n2] + random.choice(nucleotides))
+                                  V_dom[len(V1) + len(p1) + len(n1) + len(p2) + len(D1) + len(p3) + 1:len(V1) + len(p1) + len(n1) + len(p2) + len(D1) + len(p3) + len_n2] + random.choice(nucleotides))
             len_n2 +=1
         else:
             pass
