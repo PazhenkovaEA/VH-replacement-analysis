@@ -52,6 +52,7 @@ Under general independency assumption it follows that:
 
 * Resulting N1-zone length is a binomial random variable:
 <a href="https://www.codecogs.com/eqnedit.php?latex=L&space;\sim&space;Bin(Lp1&plus;Lp2&plus;Ln,&space;pe)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?L&space;\sim&space;Bin(Lp1&plus;Lp2&plus;Ln,&space;pe)" title="L \sim Bin(Lp1+Lp2+Ln, pe)" /></a>
+
 The model has three parameters: 
 <a href="https://www.codecogs.com/eqnedit.php?latex=pp,&space;pn,&space;pe" target="_blank"><img src="https://latex.codecogs.com/gif.latex?pp,&space;pn,&space;pe" title="pp, pn, pe" /></a>
 
@@ -60,7 +61,8 @@ The final formula of model is ![model](https://github.com/PazhenkovaEA/VH-replac
 ### Synthetic dataset
   
   We generate synthetic dataset with our script [genejunc.py](https://github.com/PazhenkovaEA/VH-replacement-analysis/blob/master/IG/genjunc.py). The idea of the script based on biological stages of antibody formation in human according to Murphy & Casey, 2017. Briefly, the random V, D, J regions are chosen from germline dataset (we use productive genes only). Palindrome length depends on position, where Artemis/DNA-PK complex make a single-strand brake, which is determined by depth of Ku70-Ku80 touchdown (Figure 1). 
-  **Figure 1**
+ 
+ **Figure 1**
   ![fig1](https://github.com/PazhenkovaEA/VH-replacement-analysis/blob/master/Figures/Bez_imeni-1.png)
   
   Thus, we can expect, than palindrome length is a geometrically distributed random variable. Palindromes are added on 3' of V-gene, 3' and 5' of D-gene and 5' of J-gene, and they are complimentary to the first (in case of 5'end) or last (in case of 3'end) several nucleotides of corresponding region. Thus, geometrically distributed random size palindromes are formed on the borders of all three genes. Between palindroms random number of random n-nucleotides is added. We assume, that N-nucleotides length is a geometrically distributed random variable. Exonuclease trimming evaluated for each nucleotides separately with Bernoulli distribution probability, which is a simplification. To produce only productive sequences (optional), the last symbol in stop-codons is changed to 'C' and 1-2 nucleotides are added in the N2-region to avoid frameshifts. 
@@ -107,6 +109,7 @@ On Fig. 3 the Junction (from 3'V to 5'J) of the same sequence as on Fig. 2 is sh
 
 The length of N1 zones were equal in 99% of 150000 generated sequences according to IMGT and initial annotation (Fig. 4).
   **Figure 4**
+
 ![heatmap](https://github.com/PazhenkovaEA/VH-replacement-analysis/blob/master/Figures/heatmap.png)
 
 Initial parameters chosen for synthetic dataset generation and parameters of model, estimated with Maximum likelihood method before and after annotation in V-quest differed not more than 10%. Thus, both model and V-quest are suitable for using in real datasets. 
@@ -117,13 +120,32 @@ Initial parameters chosen for synthetic dataset generation and parameters of mod
 | Before V-quest | 0.5 | 0.1 | 0.9 |
 | After V-quest | 0.43 | 0.09 | 0.8 |
 
+### Testing model on experimental datasets
 
-Discussion
+The model was tested on data, collected from NCBI and splitted up on phenotypes. 
+For each phenotypes parameters were estimated with Maximum likelyhood method and distributions were plotted (red - experimental data, blue - model distribution)
+![Figure 5](https://github.com/PazhenkovaEA/VH-replacement-analysis/blob/master/Figures/1_graph.png)
 
-  However, the N1-zone sometimes contains so-called footprints, appeared as a result of VH-replacement and recent studies showed that the length of CDR3 (including V3', N1, D, N2 and J5') is correlated with number of footprints (Meng et al., 2014)
+In cases of healthy phenotypes and some non-healthy (chronic lymphomic leukemia, infectious mononucleosis), model well describes real data N1-length distributions. However, in HIV-1 infection, non-Hodgkin lymohomas, systemic lupus erythematos, multiple sclerosis (and etc) phenotypes some lengths of N1 represented by larger number of copies, than other. This can be caused by presence of clones in our samples, which means, that our N1 lenght sampling is not random. To avoid such limitations, we filtered clones, detected by Partis, and fit the model with filtered data.
+
+![Figure 6](https://github.com/PazhenkovaEA/VH-replacement-analysis/blob/master/Figures/2_graph.png)
+
+However, plots for some unhealthy phenotypes still shows discrepancy in model and real N1 length distributions. This can be explained by presence of additional factors playing role in N1-zone formation. The N1-zone sometimes contains so-called footprints, appeared as a result of VH-replacement and recent studies showed that the length of CDR3 (including V3', N1, D, N2 and J5') is correlated with number of footprints (Meng et al., 2014). Futher investigations are nessesary to test this hypothesis. 
+
+
+[The script](https://github.com/PazhenkovaEA/VH-replacement-analysis/blob/master/IG/model_rev_1.py) was used to choose the parameters for the model and to visualize the resulted distribution for each phenotype.
+
+**Prerequisites**: Python 3.x, libraries matplotlib, pandas, numpy, scipy
+
+## Further plans
+* Analyze model adequacy via Pearson test
+* Perform experiments with high-quality datasets
+* Loosen independence assumptions in the model
+
 
 ## Citation
 * Brochet, X., Lefranc, M. P., & Giudicelli, V. (2008). IMGT/V-QUEST: the highly customized and integrated system for IG and TR standardized V-J and V-D-J sequence analysis. Nucleic Acids Research, 36(Web Server issue). https://doi.org/10.1093/nar/gkn316
 * Cock, P. J. A., Antao, T., Chang, J. T., Chapman, B. A., Cox, C. J., Dalke, A., … De Hoon, M. J. L. (2009). Biopython: Freely available Python tools for computational molecular biology and bioinformatics. Bioinformatics, 25(11), 1422–1423. https://doi.org/10.1093/bioinformatics/btp163
 * Meng, W., Jayaraman, S., Zhang, B., Schwartz, G. W., Daber, R. D., Hershberg, U., … Luning Prak, E. T. (2014). Trials and tribulations with VH replacement. Frontiers in Immunology, 5(JAN). https://doi.org/10.3389/fimmu.2014.00010
 * Murphy, K., Casey, W. (2017). Janeway's immunobiology. 9th edition. New York: Garland Science, London: Taylor & Francis Group
+* Partis https://github.com/psathyrella/partis/blob/master/manual.md
