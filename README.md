@@ -21,8 +21,8 @@ Tasks:
 * to estimate parameters of the model for synthetic datasets
 * to find the best model for experimental data and evaluate its biological relevance
 
-## Methods
-### Test data
+## Material and methods
+### The data
 
 The data was collected from [NCBI](https://www.ncbi.nlm.nih.gov/nucleotide/). 
 The dataset contained 32301 sequences, than it was splitted up on different phenotypes. We divided our dataset on clonal families using [Partis](https://github.com/psathyrella/partis/blob/master/manual.md) and filtered clones to avoid presence of non-random samples. After filtering, we got following phenotypes:
@@ -39,6 +39,7 @@ The dataset contained 32301 sequences, than it was splitted up on different phen
 * Infectious mononucleosis: N = 130
 * Acute viral and bacterial infections: N = 249
 * Pneumococcal vaccine: N = 97 
+Parameters of the model were estimated with Maximum likelihood method and real and modelled distriburions were visualized before and after filtering of dependencies in Partis. 
 
 ## Results
 
