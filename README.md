@@ -150,3 +150,6 @@ However, plots for some unhealthy phenotypes still shows discrepancy in model an
 * Meng, W., Jayaraman, S., Zhang, B., Schwartz, G. W., Daber, R. D., Hershberg, U., … Luning Prak, E. T. (2014). Trials and tribulations with VH replacement. Frontiers in Immunology, 5(JAN). https://doi.org/10.3389/fimmu.2014.00010
 * Murphy, K., Casey, W. (2017). Janeway's immunobiology. 9th edition. New York: Garland Science, London: Taylor & Francis Group
 * Partis https://github.com/psathyrella/partis/blob/master/manual.md
+
+
+P.S. “Essentially, all models are wrong, but some are useful.” George Box
