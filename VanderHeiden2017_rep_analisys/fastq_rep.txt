@@ -1,0 +1,19 @@
+#download fastq, then make fasta and chose IGH only.
+for x in *.fastq; do
+sed '/^@/!d;s//>/;N' $x |grep -ve ^@|grep 'PRCONS=Human-IGH' -A 1 > $x.fasta;
+done
+
+#upload fasta to V-quest, then download result and put it into "./data"
+cd data
+
+for a in *.txz
+do
+    a_dir=`expr $a : '\(.*\).txz'`
+    mkdir $a_dir 2>/dev/null
+    tar -xvzf $a -C $a_dir
+done
+
+cd ..
+
+#Then run IG.ipynb from current directory
+
